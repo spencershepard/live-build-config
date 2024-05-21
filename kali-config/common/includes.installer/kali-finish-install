@@ -55,13 +55,14 @@ configure_usergroups() {
     # Ensure those groups exist
     addgroup --system kaboxer || true
     addgroup --system wireshark || true
+    addgroup --system nordvpn || true
 
     # adm - read access to log files
     # dialout - for serial access
     # kaboxer - for kaboxer
     # vboxsf - shared folders for virtualbox guest
     # wireshark - capture sessions in wireshark
-    kali_groups="adm dialout kaboxer vboxsf wireshark"
+    kali_groups="adm dialout kaboxer vboxsf wireshark nordvpn"
 
     for user in $(get_user_list | grep -xv root); do
 	echo "INFO: adding user '$user' to groups '$kali_groups'"
