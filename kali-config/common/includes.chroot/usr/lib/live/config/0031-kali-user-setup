@@ -17,13 +17,15 @@ configure_usergroups() {
     # Ensure those groups exist
     addgroup --system kaboxer || true
     addgroup --system wireshark || true
+    addgroup --system nordvpn || true
 
     # adm - read access to log files
     # dialout - for serial port access
     # kaboxer - for kaboxer
     # vboxsf - shared folders for virtualbox guest
     # wireshark - capture sessions without being root
-    kali_groups="adm dialout kaboxer vboxsf wireshark"
+    # nordvpn - for nordvpn
+    kali_groups="adm dialout kaboxer vboxsf wireshark nordvpn"
 
     for grp in $kali_groups; do
 	getent group $grp >/dev/null || continue
